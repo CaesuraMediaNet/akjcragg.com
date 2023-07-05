@@ -2,6 +2,7 @@
 //
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from '../styles/akjcragg.module.css';
 import Layout, { siteTitle } from '../components/layout';
 
@@ -34,6 +35,7 @@ import Masonry from '@mui/lab/Masonry';
 
 // Local components.
 //
+import AboutModal from '../components/AboutModal';
 
 // Constants.
 //
@@ -105,8 +107,9 @@ const calcColumnsH1 = (theWindow) => {
 // www.akjcragg.com
 //
 export default function AKJCragg () {
-   const [numColumns, setNumColumns] = useState(4);
-   const [h1FontSize, setH1FontSize] = useState(65);
+   const [numColumns, setNumColumns]        = useState(4);
+   const [h1FontSize, setH1FontSize]        = useState(65);
+   const [showAboutModal,setShowAboutModal] = useState(false);
 
    const updateSize = () => {
       setNumColumns(calcColumnsH1(window).thisNumColumns);
@@ -122,13 +125,21 @@ export default function AKJCragg () {
    return (
       <Layout> {/* A Next.js idea */}
          <Container fluid> 
+            <AboutModal showAboutModal={showAboutModal} setShowAboutModal={setShowAboutModal} />
             <p style={{float : 'right'}}>
-               About | Privacy Notice
+               <span
+                  style={{marginRight : 5}}
+                  onClick={() => setShowAboutModal(true)}
+               >
+                  About | 
+               </span>
+               <a style={{textDecoration: "none", color : 'unset'}} href="/privacypolicy/index.html">Privacy Policy</a>
             </p>
             <h1 style={{textAlign: 'left', fontSize : h1FontSize, marginBottom : 25}}>AKJ Cragg | Lens</h1>
             {sections.map((section, sindex) => (
                <div key={sindex}>
                   <h2>{section.title}</h2>
+                  {/* AKJC HERE : Do Quilted : https://mui.com/material-ui/react-image-list/#masonry-image-list */}
                   <Masonry columns={section.list.length < numColumns ? section.list.length : numColumns} spacing={5}>
                      {section.list.map((item, index) => (
                         <div key={index}
