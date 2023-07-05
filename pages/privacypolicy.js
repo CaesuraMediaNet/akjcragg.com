@@ -9,7 +9,6 @@ export default function PrivacyPolicy () {
             <p style={{float : 'right'}}>
                <Link style={{textDecoration: "none", color : 'unset'}} href="/">Home</Link>
             </p>
-
             <h1 style={{textAlign: 'left', fontSize : 25, marginBottom : 25}}>AKJ Cragg | Lens | Privacy Policy</h1>
             <iframe
                style={{border : 0}}
