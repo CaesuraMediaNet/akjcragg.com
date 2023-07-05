@@ -133,7 +133,7 @@ export default function AKJCragg () {
                >
                   About | 
                </span>
-               <a style={{textDecoration: "none", color : 'unset'}} href="/privacypolicy/index.html">Privacy Policy</a>
+               <Link style={{textDecoration: "none", color : 'unset'}} href="/privacypolicy">Privacy Policy</Link>
             </p>
             <h1 style={{textAlign: 'left', fontSize : h1FontSize, marginBottom : 25}}>AKJ Cragg | Lens</h1>
             {sections.map((section, sindex) => (
