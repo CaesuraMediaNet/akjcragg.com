@@ -3,8 +3,8 @@ import Image from 'next/image';
 import styles from '../styles/akjcragg.module.css';
 import Link from 'next/link';
 import Script from 'next/script';
-import { Averia_Sans_Libre } from 'next/font/google';
-const memTylesFont = Averia_Sans_Libre({
+import { League_Spartan } from 'next/font/google';
+const akjcraggFont = League_Spartan({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
@@ -15,7 +15,7 @@ export const siteTitle = 'MemTyles : A Tyle Memory Game';
 
 export default function Layout({ children, home }) {
   return (
-    <div className={[styles.container, memTylesFont.className].join (' ')}>
+    <div className={[styles.container, akjcraggFont.className].join (' ')}>
       <Head>
       <meta charSet="utf-8" />
       <meta name="format-detection"      content="telephone=yes" />

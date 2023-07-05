@@ -40,12 +40,41 @@ import Masonry from '@mui/lab/Masonry';
 import {ImageList} from '../constants';
 
 
+const calcColumns = (theWindow) => {
+   let thisNumColumns = 5;
+   if (theWindow.innerWidth < 576) {
+      thisNumColumns = 1;
+   } else if (theWindow.innerWidth < 767.98) {
+      thisNumColumns = 2;
+   } else if (theWindow.innerWidth < 991.98) {
+      thisNumColumns = 3;
+   } else if (theWindow.innerWidth < 1199.98) {
+      thisNumColumns = 4;
+   }
+   return thisNumColumns;
+}
+
+// www.akjcragg.com
+//
 export default function AKJCragg () {
+   const [numColumns, setNumColumns] = useState (5);
+
+   const updateSize = () => {
+      setNumColumns(calcColumns(window));
+   }
+   useEffect(() => {
+      setNumColumns(calcColumns(window));
+      window.onresize = updateSize;
+   }, []);
+
+
    return (
       <Layout> {/* A Next.js idea */}
          <Container fluid> 
-            <h1>AKJ Cragg</h1>
-            <Masonry columns={4} spacing={5}>
+            <div>
+               <h1 style={{textAlign: 'left', fontSize : 60}}>AKJ Cragg | Lens</h1>
+            </div>
+            <Masonry columns={numColumns} spacing={5}>
                {ImageList.map((item, index) => (
                   <div key={index}
                      style={{
