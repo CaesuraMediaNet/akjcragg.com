@@ -16,13 +16,6 @@
   align-items: center;
 }
 
-.imgBorder {
-   border : 1px solid #2dce89;
-   border-radius : 0.375rem;
-   width: '100%';
-   display: 'block';
-}
-
 .footer {
    border : 1px solid #2dce89;
    border-radius : 0.375rem;

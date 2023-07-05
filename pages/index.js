@@ -37,7 +37,50 @@ import Masonry from '@mui/lab/Masonry';
 
 // Constants.
 //
-import {ImageList} from '../constants';
+import {
+   ImageListMain1,
+   ImageListMain2,
+   ImageListCardiff,
+   ImageListNeon,
+   ImageListWarm,
+   ImageListWorthing,
+   ImageListBW,
+   ImageListVarious,
+} from '../constants';
+const sections = [
+   {
+      title : "",
+      list  : ImageListMain1,
+   },
+   {
+      title : "",
+      list  : ImageListMain2,
+   },
+   {
+      title : "National Museum Cardiff",
+      list  : ImageListCardiff,
+   },
+   {
+      title : "Neon",
+      list  : ImageListNeon,
+   },
+   {
+      title : "B/W",
+      list  : ImageListBW,
+   },
+   {
+      title : "Warm",
+      list  : ImageListWarm,
+   },
+   {
+      title : "Worthing",
+      list  : ImageListWorthing,
+   },
+   {
+      title : "Various",
+      list  : ImageListVarious,
+   },
+];
 
 
 const calcColumns = (theWindow) => {
@@ -74,33 +117,38 @@ export default function AKJCragg () {
             <div>
                <h1 style={{textAlign: 'left', fontSize : 60}}>AKJ Cragg | Lens</h1>
             </div>
-            <Masonry columns={numColumns} spacing={5}>
-               {ImageList.map((item, index) => (
-                  <div key={index}
-                     style={{
-                        borderRadius: '0.2rem',
-                        overflow:'hidden',
-                        border: '1px solid rgba(0, 0, 0, 1.0)',
-                        padding:5,
-                        boxShadow: '0px 0px 15px 5px #D2D6C5',
-                     }}
-                  >
-                     <div>
-                        {item.replace(/^.img.(.+).jpg/, '$1')}
-                     </div>
-                     <img
-                        src={`${item}?w=162&auto=format`}
-                        srcSet={`${item}?w=162&auto=format&dpr=2 2x`}
-                        alt={item}
-                        loading="lazy"
-                        style={{
-                           display: 'block',
-                           width: '100%',
-                        }}
-                     />
-                  </div>
-               ))}
-            </Masonry>
+            {sections.map((section, sindex) => (
+               <div key={sindex}>
+                  <h2>{section.title}</h2>
+                  <Masonry columns={section.list.length < numColumns ? section.list.length : numColumns} spacing={5}>
+                     {section.list.map((item, index) => (
+                        <div key={index}
+                           style={{
+                              borderRadius : '0.2rem',
+                              overflow     : 'hidden',
+                              border       : '1px solid rgba(0, 0, 0, 1.0)',
+                              padding      : 5,
+                              boxShadow    : '0px 0px 15px 5px #D2D6C5',
+                           }}
+                        >
+                           <div>
+                              {item.replace(/^.img.(.+).jpg/, '$1')}
+                           </div>
+                           <img
+                              src={`${item}?w=162&auto=format`}
+                              srcSet={`${item}?w=162&auto=format&dpr=2 2x`}
+                              alt={item}
+                              loading="lazy"
+                              style={{
+                                 display: 'block',
+                                 width: '100%',
+                              }}
+                           />
+                        </div>
+                     ))}
+                  </Masonry>
+               </div>
+            ))}
          </Container>
       </Layout>
    );
