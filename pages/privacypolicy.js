@@ -14,7 +14,7 @@ export default function PrivacyPolicy () {
             <iframe
                style={{border : 0}}
                src="/PrivacyPolicyHTML.html"
-               width="100%"
+               width="90%"
                height="10000"
                loading="lazy"
                scrolling="yes"
