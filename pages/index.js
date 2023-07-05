@@ -83,30 +83,38 @@ const sections = [
 ];
 
 
-const calcColumns = (theWindow) => {
-   let thisNumColumns = 5;
+const calcColumnsH1 = (theWindow) => {
+   let thisNumColumns = 4;
+   let thisH1FontSize = 65;
    if (theWindow.innerWidth < 576) {
       thisNumColumns = 1;
+      thisH1FontSize = 25;
    } else if (theWindow.innerWidth < 767.98) {
       thisNumColumns = 2;
+      thisH1FontSize = 35;
    } else if (theWindow.innerWidth < 991.98) {
       thisNumColumns = 3;
+      thisH1FontSize = 45;
    } else if (theWindow.innerWidth < 1199.98) {
       thisNumColumns = 4;
+      thisH1FontSize = 55;
    }
-   return thisNumColumns;
+   return {thisNumColumns, thisH1FontSize};
 }
 
 // www.akjcragg.com
 //
 export default function AKJCragg () {
-   const [numColumns, setNumColumns] = useState (5);
+   const [numColumns, setNumColumns] = useState(4);
+   const [h1FontSize, setH1FontSize] = useState(65);
 
    const updateSize = () => {
-      setNumColumns(calcColumns(window));
+      setNumColumns(calcColumnsH1(window).thisNumColumns);
+      setH1FontSize(calcColumnsH1(window).thisH1FontSize);
    }
    useEffect(() => {
-      setNumColumns(calcColumns(window));
+      setNumColumns(calcColumnsH1(window).thisNumColumns);
+      setH1FontSize(calcColumnsH1(window).thisH1FontSize);
       window.onresize = updateSize;
    }, []);
 
@@ -114,9 +122,10 @@ export default function AKJCragg () {
    return (
       <Layout> {/* A Next.js idea */}
          <Container fluid> 
-            <div>
-               <h1 style={{textAlign: 'left', fontSize : 60}}>AKJ Cragg | Lens</h1>
-            </div>
+            <p style={{float : 'right'}}>
+               About | Privacy Notice
+            </p>
+            <h1 style={{textAlign: 'left', fontSize : h1FontSize, marginBottom : 25}}>AKJ Cragg | Lens</h1>
             {sections.map((section, sindex) => (
                <div key={sindex}>
                   <h2>{section.title}</h2>
