@@ -29,7 +29,6 @@ import Masonry from '@mui/lab/Masonry';
 
 // Local components.
 //
-import AboutModal        from '../components/AboutModal';
 import Footer            from '../components/Footer';
 import useProgressiveImg from '../components/useProgressiveImg';
 
@@ -84,7 +83,6 @@ const sections = [
 export default function AKJCragg () {
    const [numColumns, setNumColumns]        = useState(3);
    const [h1FontSize, setH1FontSize]        = useState(65);
-   const [showAboutModal,setShowAboutModal] = useState(false);
 
    const updateSize = () => {
       setNumColumns(calcColumnsH1(window).thisNumColumns);
@@ -113,11 +111,8 @@ export default function AKJCragg () {
          />
       );
    }
-
-
    return (
-      <Layout> {/* A Next.js idea */}
-         <AboutModal showAboutModal={showAboutModal} setShowAboutModal={setShowAboutModal} />
+      <Layout>
          <div style={{flexDirection : 'row', display: "flex", justifyContent : 'space-between', alignItems : 'center'}}>
             <h1 style={{textAlign: 'left', fontSize : h1FontSize}}>AKJ Cragg | Lens</h1>
             <Link style={{fontSize : h1FontSize/2, textDecoration: "underline", color : 'unset'}} href="/about">About</Link>
