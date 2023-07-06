@@ -10,8 +10,8 @@ const akjcraggFont = League_Spartan({
   display: 'swap',
 });
 
-const name = 'MemTyles';
-export const siteTitle = 'MemTyles : A Tyle Memory Game';
+const name = 'akjcragg.com';
+export const siteTitle = 'AKJ Cragg | Lens';
 
 export default function Layout({ children, home }) {
   return (

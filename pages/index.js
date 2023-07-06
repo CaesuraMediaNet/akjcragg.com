@@ -14,12 +14,6 @@ import { useRef } from 'react';
 
 // External React Libraries.
 //
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import BsCard from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
    faUserSecret,
@@ -36,6 +30,7 @@ import Masonry from '@mui/lab/Masonry';
 // Local components.
 //
 import AboutModal from '../components/AboutModal';
+import Footer     from '../components/Footer';
 
 // Constants.
 //
@@ -124,52 +119,46 @@ export default function AKJCragg () {
 
    return (
       <Layout> {/* A Next.js idea */}
-         <Container fluid> 
-            <AboutModal showAboutModal={showAboutModal} setShowAboutModal={setShowAboutModal} />
-            <p style={{float : 'right'}}>
-               <span
-                  style={{marginRight : 5}}
-                  onClick={() => setShowAboutModal(true)}
-               >
-                  About | 
-               </span>
-               <Link style={{textDecoration: "none", color : 'unset'}} href="/privacypolicy">Privacy Policy</Link>
-            </p>
-            <h1 style={{textAlign: 'left', fontSize : h1FontSize, marginBottom : 25}}>AKJ Cragg | Lens</h1>
-            {sections.map((section, sindex) => (
-               <div key={sindex}>
-                  <h2>{section.title}</h2>
-                  {/* AKJC HERE : Do Quilted : https://mui.com/material-ui/react-image-list/#masonry-image-list */}
-                  <Masonry columns={section.list.length < numColumns ? section.list.length : numColumns} spacing={5}>
-                     {section.list.map((item, index) => (
-                        <div key={index}
-                           style={{
-                              borderRadius : '0.2rem',
-                              overflow     : 'hidden',
-                              border       : '1px solid rgba(0, 0, 0, 1.0)',
-                              padding      : 5,
-                              boxShadow    : '0px 0px 15px 5px #D2D6C5',
-                           }}
-                        >
-                           <div>
-                              {item.replace(/^.img.(.+).jpg/, '$1')}
-                           </div>
-                           <img
-                              src={`${item}?w=162&auto=format`}
-                              srcSet={`${item}?w=162&auto=format&dpr=2 2x`}
-                              alt={item}
-                              loading="lazy"
-                              style={{
-                                 display: 'block',
-                                 width: '100%',
-                              }}
-                           />
+         <AboutModal showAboutModal={showAboutModal} setShowAboutModal={setShowAboutModal} />
+         <div style={{flexDirection : 'row', display: "flex", justifyContent : 'space-between', alignItems : 'center'}}>
+            <h1 style={{textAlign: 'left', fontSize : h1FontSize}}>AKJ Cragg | Lens</h1>
+            <Link style={{fontSize : h1FontSize/2, textDecoration: "underline", color : 'unset'}} href="/about">About</Link>
+         </div>
+
+         {sections.map((section, sindex) => (
+            <div key={sindex}>
+               <h2>{section.title}</h2>
+               {/* AKJC HERE : Do Quilted : https://mui.com/material-ui/react-image-list/#masonry-image-list */}
+               <Masonry columns={section.list.length < numColumns ? section.list.length : numColumns} spacing={5}>
+                  {section.list.map((item, index) => (
+                     <div key={index}
+                        style={{
+                           borderRadius : '0.2rem',
+                           overflow     : 'hidden',
+                           border       : '1px solid rgba(0, 0, 0, 1.0)',
+                           padding      : 5,
+                           boxShadow    : '0px 0px 15px 5px #D2D6C5',
+                        }}
+                     >
+                        <div>
+                           {item.replace(/^.img.(.+).jpg/, '$1')}
                         </div>
-                     ))}
-                  </Masonry>
-               </div>
-            ))}
-         </Container>
+                        <img
+                           src={`${item}?w=162&auto=format`}
+                           srcSet={`${item}?w=162&auto=format&dpr=2 2x`}
+                           alt={item}
+                           loading="lazy"
+                           style={{
+                              display: 'block',
+                              width: '100%',
+                           }}
+                        />
+                     </div>
+                  ))}
+               </Masonry>
+            </div>
+         ))}
+         <Footer />
       </Layout>
    );
 }
