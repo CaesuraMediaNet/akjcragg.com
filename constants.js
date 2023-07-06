@@ -33,6 +33,7 @@ export const ImageListWarm = [
    "/img/Warm5.jpg",
 ];
 export const ImageListWorthing = [
+   "/img/ChipShop.jpg",
    "/img/BackOfHouses.jpg",
    "/img/BeachLong.jpg",
    "/img/PierBlueGlass.jpg",
@@ -44,4 +45,30 @@ export const ImageListWorthing = [
    "/img/PierSingleLamppost.jpg",
    "/img/PierWindow.jpg",
    "/img/PierYellowGlass.jpg",
+   "/img/LamppostThroughWindow.jpg",
+];
+export const ImageListVarious = [
+   "/img/Green.jpg",
+   "/img/BuildingSite.jpg",
+   "/img/TreeArch.jpg",
+   "/img/LightSwitch.jpg",
+   "/img/MysteryKnob.jpg",
+   "/img/SantaDalek.jpg",
+   "/img/MysteryDalek.jpg",
+   "/img/GetOutaHJere.jpg",
+   "/img/Wall.jpg",
+   "/img/UnderTheSea.jpg",
+   "/img/Monitor.jpg",
+   "/img/SeaSky.jpg",
+   "/img/Beach.jpg",
+   "/img/Coffee.jpg",
+   "/img/Paulonia.jpg",
+   "/img/Starlings.jpg",
+   "/img/Sunset.jpg",
+   "/img/WindscreenSunset.jpg",
+   "/img/Grave.jpg",
+   "/img/Pillbox.jpg",
+   "/img/DrWhoSet.jpg",
+   "/img/Sexism.jpg",
+   "/img/Table.jpg",
 ];

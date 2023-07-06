@@ -29,8 +29,9 @@ import Masonry from '@mui/lab/Masonry';
 
 // Local components.
 //
-import AboutModal from '../components/AboutModal';
-import Footer     from '../components/Footer';
+import AboutModal        from '../components/AboutModal';
+import Footer            from '../components/Footer';
+import useProgressiveImg from '../components/useProgressiveImg';
 
 // Local functions.
 //
@@ -40,7 +41,6 @@ import calcColumnsH1 from '../functions/calcColumnsH1';
 //
 import {
    ImageListMain1,
-   ImageListMain2,
    ImageListCardiff,
    ImageListNeon,
    ImageListWarm,
@@ -56,6 +56,10 @@ const sections = [
    {
       title : "National Museum Cardiff",
       list  : ImageListCardiff,
+   },
+   {
+      title : "Various",
+      list  : ImageListVarious,
    },
    {
       title : "Neon",
@@ -78,7 +82,7 @@ const sections = [
 // www.akjcragg.com
 //
 export default function AKJCragg () {
-   const [numColumns, setNumColumns]        = useState(4);
+   const [numColumns, setNumColumns]        = useState(3);
    const [h1FontSize, setH1FontSize]        = useState(65);
    const [showAboutModal,setShowAboutModal] = useState(false);
 
@@ -91,6 +95,25 @@ export default function AKJCragg () {
       setH1FontSize(calcColumnsH1(window).thisH1FontSize);
       window.onresize = updateSize;
    }, []);
+
+   function AkjImage ({ item }) {
+      const [src, { blur }] = useProgressiveImg(item.replace(/img/, 'img/blur'), item);
+      return (
+         <img
+            src={`${src}?w=162&auto=format`}
+            srcSet={`${src}?w=162&auto=format&dpr=2 2x`}
+            alt={item}
+            loading="lazy"
+            style={{
+               display: 'block',
+               width: '100%',
+               filter: blur ? "blur(20px)" : "none",
+               transition: blur ? "none" : "filter 0.3s ease-out"
+            }}
+         />
+      );
+   }
+
 
    return (
       <Layout> {/* A Next.js idea */}
@@ -105,8 +128,8 @@ export default function AKJCragg () {
                <h2>{section.title === "ImageListMain1" ? "" : section.title}</h2>
                <Masonry
                   columns={
-                     section.title === "ImageListMain1"
-                     ? 2                   : section.list.length < numColumns
+                     section.title.match(/ImageListMain1|Various/)
+                     ? 3                   : section.list.length < numColumns
                      ? section.list.length : numColumns
                   }
                   spacing={5}
@@ -124,16 +147,7 @@ export default function AKJCragg () {
                         <div>
                            {item.replace(/^.img.(.+).jpg/, '$1').replace(/([A-Z]+)/g, ' $1').trim()}
                         </div>
-                        <img
-                           src={`${item}?w=162&auto=format`}
-                           srcSet={`${item}?w=162&auto=format&dpr=2 2x`}
-                           alt={item}
-                           loading="lazy"
-                           style={{
-                              display: 'block',
-                              width: '100%',
-                           }}
-                        />
+                        <AkjImage item={item} />
                      </div>
                   ))}
                </Masonry>
