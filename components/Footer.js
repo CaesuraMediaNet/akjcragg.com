@@ -7,9 +7,8 @@ export default function Footer () {
          <p>
             Copyright &copy; AKJ Cragg {new Date().getFullYear()}. All Rights Reserved.
          </p>
-         | 
          <p>
-            <Link style={{textDecoration: "none", color : 'unset'}} href="/privacypolicy">Privacy Policy</Link>
+            <Link style={{textDecoration: "underline", color : 'unset'}} href="/privacypolicy">Privacy Policy</Link>
          </p>
       </footer>
    );

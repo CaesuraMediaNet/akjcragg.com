@@ -40,12 +40,12 @@ export const ImageListWorthing = [
    "/img/PierCafeOutside.jpg",
    "/img/PierKitchen.jpg",
    "/img/PierLampposts.jpg",
+   "/img/LamppostThroughWindow.jpg",
    "/img/PierRedWindow.jpg",
    "/img/PierSeat.jpg",
    "/img/PierSingleLamppost.jpg",
    "/img/PierWindow.jpg",
    "/img/PierYellowGlass.jpg",
-   "/img/LamppostThroughWindow.jpg",
 ];
 export const ImageListVarious = [
    "/img/Green.jpg",
@@ -55,10 +55,11 @@ export const ImageListVarious = [
    "/img/MysteryKnob.jpg",
    "/img/SantaDalek.jpg",
    "/img/MysteryDalek.jpg",
-   "/img/GetOutaHJere.jpg",
+   "/img/GetOutaHere.jpg",
    "/img/Wall.jpg",
    "/img/UnderTheSea.jpg",
    "/img/Monitor.jpg",
+   "/img/Table.jpg",
    "/img/SeaSky.jpg",
    "/img/Beach.jpg",
    "/img/Coffee.jpg",
@@ -70,5 +71,4 @@ export const ImageListVarious = [
    "/img/Pillbox.jpg",
    "/img/DrWhoSet.jpg",
    "/img/Sexism.jpg",
-   "/img/Table.jpg",
 ];
