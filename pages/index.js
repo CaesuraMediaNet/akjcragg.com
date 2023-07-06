@@ -24,7 +24,7 @@ import {
 
 // MUI Material UI
 //
-import Box from '@mui/material/Box';
+import Box     from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
 
 // Local components.
@@ -121,8 +121,9 @@ export default function AKJCragg () {
             <div key={sindex}>
                <h2>{section.title === "ImageListMain1" ? "" : section.title}</h2>
                <Masonry
+                  style={{marginLeft : 'auto', marginRight : 'auto'}}
                   columns={
-                     section.title.match(/ImageListMain1|Various/)
+                     section.title.match(/ImageListMain1|Various/) && numColumns > 2
                      ? 3                   : section.list.length < numColumns
                      ? section.list.length : numColumns
                   }
