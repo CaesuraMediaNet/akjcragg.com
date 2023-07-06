@@ -117,7 +117,6 @@ export default function AKJCragg () {
             <h1 style={{textAlign: 'left', fontSize : h1FontSize}}>AKJ Cragg | Lens</h1>
             <Link style={{fontSize : h1FontSize/2, textDecoration: "underline", color : 'unset'}} href="/about">About</Link>
          </div>
-
          {sections.map((section, sindex) => (
             <div key={sindex}>
                <h2>{section.title === "ImageListMain1" ? "" : section.title}</h2>
