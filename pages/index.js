@@ -32,6 +32,10 @@ import Masonry from '@mui/lab/Masonry';
 import AboutModal from '../components/AboutModal';
 import Footer     from '../components/Footer';
 
+// Local functions.
+//
+import calcColumnsH1 from '../functions/calcColumnsH1';
+
 // Constants.
 //
 import {
@@ -79,26 +83,6 @@ const sections = [
    },
 ];
 
-
-const calcColumnsH1 = (theWindow) => {
-   let thisNumColumns = 4;
-   let thisH1FontSize = 65;
-   if (theWindow.innerWidth < 576) {
-      thisNumColumns = 1;
-      thisH1FontSize = 25;
-   } else if (theWindow.innerWidth < 767.98) {
-      thisNumColumns = 2;
-      thisH1FontSize = 35;
-   } else if (theWindow.innerWidth < 991.98) {
-      thisNumColumns = 3;
-      thisH1FontSize = 45;
-   } else if (theWindow.innerWidth < 1199.98) {
-      thisNumColumns = 4;
-      thisH1FontSize = 55;
-   }
-   return {thisNumColumns, thisH1FontSize};
-}
-
 // www.akjcragg.com
 //
 export default function AKJCragg () {
@@ -115,6 +99,17 @@ export default function AKJCragg () {
       setH1FontSize(calcColumnsH1(window).thisH1FontSize);
       window.onresize = updateSize;
    }, []);
+
+   // https://mui.com/material-ui/react-image-list/#quilted-image-list
+   //
+   function srcset(image, size, rows = 1, cols = 1) {
+     return {
+       src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
+       srcSet: `${image}?w=${size * cols}&h=${
+         size * rows
+       }&fit=crop&auto=format&dpr=2 2x`,
+     };
+   }
 
 
    return (

@@ -1,14 +1,27 @@
-import Layout, { siteTitle } from '../components/layout';
-import Link from 'next/link';
-import Footer from '../components/Footer';
+import Layout, { siteTitle }  from '../components/layout';
+import Link                   from 'next/link';
+import Footer                 from '../components/Footer';
+import calcColumnsH1          from '../functions/calcColumnsH1';
+import { useState }           from 'react';
+import { useEffect }          from 'react';
+import { useRef }             from 'react';
 
 
 export default function PrivacyPolicy () {
+   const [h1FontSize, setH1FontSize]        = useState(65);
+   const updateSize = () => {
+      setH1FontSize(calcColumnsH1(window).thisH1FontSize);
+   }
+   useEffect(() => {
+      setH1FontSize(calcColumnsH1(window).thisH1FontSize);
+      window.onresize = updateSize;
+   }, []);
+
    return (
       <Layout>
          <div style={{flexDirection : 'row', display: "flex", justifyContent : 'space-between', alignItems : 'center'}}>
-            <h1 style={{textAlign: 'left', fontSize : 25}}>AKJ Cragg | Lens | Privacy Policy</h1>
-            <Link style={{fontSize : 16, textDecoration: "underline", color : 'unset'}} href="/">Home</Link>
+            <h1 style={{textAlign: 'left', fontSize : h1FontSize}}>AKJ Cragg | Lens | Privacy Policy</h1>
+            <Link style={{fontSize : h1FontSize/2, textDecoration: "underline", color : 'unset'}} href="/">Home</Link>
          </div>
          <iframe
             style={{border : 0}}
