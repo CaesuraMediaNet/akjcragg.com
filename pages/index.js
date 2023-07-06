@@ -50,12 +50,8 @@ import {
 } from '../constants';
 const sections = [
    {
-      title : "",
+      title : "ImageListMain1",
       list  : ImageListMain1,
-   },
-   {
-      title : "",
-      list  : ImageListMain2,
    },
    {
       title : "National Museum Cardiff",
@@ -77,10 +73,6 @@ const sections = [
       title : "Worthing",
       list  : ImageListWorthing,
    },
-   {
-      title : "Various",
-      list  : ImageListVarious,
-   },
 ];
 
 // www.akjcragg.com
@@ -100,18 +92,6 @@ export default function AKJCragg () {
       window.onresize = updateSize;
    }, []);
 
-   // https://mui.com/material-ui/react-image-list/#quilted-image-list
-   //
-   function srcset(image, size, rows = 1, cols = 1) {
-     return {
-       src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-       srcSet: `${image}?w=${size * cols}&h=${
-         size * rows
-       }&fit=crop&auto=format&dpr=2 2x`,
-     };
-   }
-
-
    return (
       <Layout> {/* A Next.js idea */}
          <AboutModal showAboutModal={showAboutModal} setShowAboutModal={setShowAboutModal} />
@@ -122,9 +102,15 @@ export default function AKJCragg () {
 
          {sections.map((section, sindex) => (
             <div key={sindex}>
-               <h2>{section.title}</h2>
-               {/* AKJC HERE : Do Quilted : https://mui.com/material-ui/react-image-list/#masonry-image-list */}
-               <Masonry columns={section.list.length < numColumns ? section.list.length : numColumns} spacing={5}>
+               <h2>{section.title === "ImageListMain1" ? "" : section.title}</h2>
+               <Masonry
+                  columns={
+                     section.title === "ImageListMain1"
+                     ? 2                   : section.list.length < numColumns
+                     ? section.list.length : numColumns
+                  }
+                  spacing={5}
+               >
                   {section.list.map((item, index) => (
                      <div key={index}
                         style={{
@@ -136,7 +122,7 @@ export default function AKJCragg () {
                         }}
                      >
                         <div>
-                           {item.replace(/^.img.(.+).jpg/, '$1')}
+                           {item.replace(/^.img.(.+).jpg/, '$1').replace(/([A-Z]+)/g, ' $1').trim()}
                         </div>
                         <img
                            src={`${item}?w=162&auto=format`}

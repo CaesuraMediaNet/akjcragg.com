@@ -28,7 +28,7 @@ export default function About () {
                style={{
                   marginLeft   : 'auto',
                   marginRight  : 'auto',
-                  width        : 250,
+                  width        : "65%",
                   borderRadius : '0.2rem',
                   overflow     : 'hidden',
                   border       : '1px solid rgba(0, 0, 0, 1.0)',
@@ -42,7 +42,7 @@ export default function About () {
                   alt={"Image of the word Crazy, with no Y"}
                   loading="lazy"
                   style={{
-                     width: 250,
+                     width: "100%",
                   }}
                />
             </div>
