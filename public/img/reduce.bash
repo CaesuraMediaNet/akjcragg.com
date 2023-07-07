@@ -15,10 +15,16 @@ echo "Convert $1 to $1.$2x$2.jpg"
 convert -resize $2x$2 $1 $1.$2x$2.jpg
 echo "Creating $4/$1.$2x$2.jpg"
 jpegoptim -S $3 -s -d $4 $1.$2x$2.jpg
-echo "mv $4/$1.$2x$2.jpg $4/$1"
-mv $4/$1.$2x$2.jpg $4/$1 
-echo "rm  $1.$2x$2.jpg"
-rm  $1.$2x$2.jpg
+if [ -f $4/$1.$2x$2.jpg ];
+   then
+      echo "mv $4/$1.$2x$2.jpg $4/$1"
+      mv $4/$1.$2x$2.jpg $4/$1 
+      echo "rm  $1.$2x$2.jpg"
+      rm  $1.$2x$2.jpg
+else 
+   echo "jpegoptim skipped, moving converted image"
+   mv $1.$2x$2.jpg $4/$1
+fi
 echo "See $4/$1";
 
 fi

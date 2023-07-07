@@ -95,11 +95,11 @@ export default function AKJCragg () {
    }, []);
 
    function AkjImage ({ item }) {
-      const [src, { blur }] = useProgressiveImg(item.replace(/img/, 'img/blur'), item);
+      const [src, { blur }] = useProgressiveImg(item.replace(/img\/main/, 'img/blur'), item);
       return (
          <img
             src={`${src}?w=162&auto=format`}
-            srcSet={`${src}?w=162&auto=format&dpr=2 2x`}
+            srcSet={`${src.replace(/main/, 'small')} 333w, ${src.replace(/main/, 'medium')} 666w, ${src} 1000w`}
             alt={item}
             loading="lazy"
             style={{
