@@ -140,7 +140,7 @@ export default function AKJCragg () {
                         }}
                      >
                         <div>
-                           {item.replace(/^.img.(.+).jpg/, '$1').replace(/([A-Z]+)/g, ' $1').trim()}
+                           {item.replace(/^\/img\/main\/(.+).jpg/, '$1').replace(/([A-Z]+)/g, ' $1').trim()}
                         </div>
                         <AkjImage item={item} />
                      </div>

@@ -45,8 +45,8 @@ export default function About () {
                   }}
                >
                   <img
-                     src={'/img/Craz.jpg?w=162&auto=format'}
-                     srcSet={'/img/Craz.jpg?w=162&auto=format&dpr=2 2x'}
+                     src={'/img/main/Craz.jpg?w=162&auto=format'}
+                     srcSet={'/img/small/Craz.jpg 333w, /img/medium/Craz.jpg 666w, /img/main/Craz.jpg 1000w'}
                      alt={"Image of the word Crazy, with no Y"}
                      loading="lazy"
                      style={{
