@@ -1,4 +1,5 @@
 export default function calcColumnsH1 (theWindow) {
+   console.log ("theWindow.innerWidth : ", theWindow.innerWidth);
    let thisNumColumns = 4;
    let thisH1FontSize = 65;
    if (theWindow.innerWidth < 576) {

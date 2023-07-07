@@ -1,11 +1,24 @@
-#  for i in `ls *jpg`; do echo $i; ./reduce.bash $i;done
+# % for i in `ls *jpg`; do echo $i; ./reduce.bash $i;done
+# Best monitor : 3840 x 2160
+# For akjcragg.com biggest pic only needs to be 3840 / 3 px == $2px tops
+# Reduce only the big ones.
 #
-mkdir -p blur
-echo "Convert $1 to $1.300x300.jpg"
-convert -resize 300x300 $1 $1.300x300.jpg
-echo "Creating blur/$1.300x300.jpg"
-jpegoptim -S 5 -s -d blur $1.300x300.jpg
-echo "Tidy"
-mv blur/$1.300x300.jpg blur/$1 
-rm  $1.300x300.jpg
-echo "See blur/$1";
+if [ $# -lt 4 ];
+   then
+      echo "Error. Usage : ./reduce.bash <image.jpg> <Width> <kb file size> <dest directory>"
+      exit 1
+else 
+
+echo "Reducing $1 $3x$3px and $3kb in $4/ ..."
+mkdir -p $4
+echo "Convert $1 to $1.$2x$2.jpg"
+convert -resize $2x$2 $1 $1.$2x$2.jpg
+echo "Creating $4/$1.$2x$2.jpg"
+jpegoptim -S $3 -s -d $4 $1.$2x$2.jpg
+echo "mv $4/$1.$2x$2.jpg $4/$1"
+mv $4/$1.$2x$2.jpg $4/$1 
+echo "rm  $1.$2x$2.jpg"
+rm  $1.$2x$2.jpg
+echo "See $4/$1";
+
+fi
