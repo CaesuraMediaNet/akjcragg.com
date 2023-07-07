@@ -60,7 +60,7 @@ export default function Footer () {
          </Grid>
          <div
             onClick={() => window.scrollTo({top:0, behavior : 'smooth'})}
-            style={{position : 'fixed', bottom : 5, right : 2}}>
+            style={{position : 'fixed', bottom : 5, right : 0}}>
             <KeyboardDoubleArrowUpIcon color="secondary" sx={{ fontSize: 45 }} />
          </div>
       </footer>
