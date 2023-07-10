@@ -20,38 +20,38 @@ export default function Footer () {
          </p>
          <p style={{width : '100%',borderTop : "1px solid black"}}></p>
          <p  style={{fontSize : 16}}>My other sites</p>
-         <Grid container spacing={2}>
-            <Grid md={2}>
+         <Grid style={{textAlign : 'left'}} container spacing={2}>
+            <Grid xs={6} md={2}>
                <a style={aStyles} href="https://chintzbaby.com" target="_blank">
                   <img src="/img/chintzbaby-cat.png" width={iconWidth} />
                   &nbsp;ChintzBaby
                </a>
             </Grid>
-            <Grid  md={2}>
+            <Grid xs={6}  md={2}>
                <a style={aStyles} href="https://andycragg.com/art" target="_blank">
                   <img src="/img/acart-logo.png" width={iconWidth} />
                   &nbsp;Art
                </a>
             </Grid>
-            <Grid md={2}>
+            <Grid xs={6} md={2}>
                <a style={aStyles} href="https://andycragg.com" target="_blank">
                   <img src="/img/akjc-logo.png" width={iconWidth} />
                   &nbsp;All sites
                </a>
             </Grid>
-            <Grid md={2}>
+            <Grid xs={6} md={2}>
                <a style={aStyles} href="https://andykjcragg.co.uk" target="_blank">
                   <img src="/img/andykjcragg-logo-large.png" width={iconWidth} />
                   &nbsp;Stories
                </a>
             </Grid>
-            <Grid md={2}>
+            <Grid xs={6} md={2}>
                <a style={aStyles} href="https://scrembl.com" target="_blank">
                   <img src="/img/scremblv2-icon.png" width={iconWidth} />
                   &nbsp;Message Obfustication
                </a>
             </Grid>
-            <Grid md={2}>
+            <Grid xs={6} md={2}>
                <a style={aStyles} href="https://memtyles.com" target="_blank">
                   <img src="/img/memtyles-logo.svg" width={iconWidth} />
                   &nbsp;Memory Game

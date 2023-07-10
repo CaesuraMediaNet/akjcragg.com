@@ -106,7 +106,7 @@ export default function AKJCragg () {
                display: 'block',
                width: '100%',
                filter: blur ? "blur(20px)" : "none",
-               transition: blur ? "none" : "filter 0.3s ease-out"
+               transition: blur ? "none" : "filter 0.2s ease-out"
             }}
          />
       );
@@ -127,7 +127,9 @@ export default function AKJCragg () {
                      ? 3                   : section.list.length < numColumns
                      ? section.list.length : numColumns
                   }
-                  spacing={5}
+                  spacing={
+                     numColumns > 1 ? 5 : 2
+                  }
                >
                   {section.list.map((item, index) => (
                      <div key={index}
@@ -135,11 +137,11 @@ export default function AKJCragg () {
                            borderRadius : '0.2rem',
                            overflow     : 'hidden',
                            border       : '1px solid rgba(0, 0, 0, 1.0)',
-                           padding      : 5,
+                           padding      : 0,
                            boxShadow    : '0px 0px 15px 5px #D2D6C5',
                         }}
                      >
-                        <div>
+                        <div style={{marginTop : 2}}>
                            {item.replace(/^\/img\/main\/(.+).jpg/, '$1').replace(/([A-Z]+)/g, ' $1').trim()}
                         </div>
                         <AkjImage item={item} />
