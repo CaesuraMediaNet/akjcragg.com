@@ -136,7 +136,7 @@ export default function AKJCragg () {
                         style={{
                            borderRadius : '0.2rem',
                            overflow     : 'hidden',
-                           border       : '1px solid rgba(0, 0, 0, 1.0)',
+                           border       : '1px solid rgba(190, 190, 190, 1.0)',
                            padding      : 0,
                            boxShadow    : '0px 0px 15px 5px #D2D6C5',
                         }}
