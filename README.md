@@ -1,1 +1,1 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).# akjcragg.com
+### akjcragg.com source code - Next.js/React.js
