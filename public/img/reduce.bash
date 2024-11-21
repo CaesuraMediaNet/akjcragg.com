@@ -1,6 +1,6 @@
 # % for i in `ls *jpg`; do echo $i; ./reduce.bash $i;done
 # Best monitor : 3840 x 2160
-# For akjcragg.com biggest pic only needs to be 3840 / 3 px == $2px tops
+# Biggest pic only needs to be 3840 / 3 px == $2px tops
 # Reduce only the big ones.
 #
 if [ $# -lt 4 ];
@@ -8,6 +8,11 @@ if [ $# -lt 4 ];
       echo "Error. Usage : ./reduce.bash <image.jpg> <Width> <kb file size> <dest directory>"
       exit 1
 else 
+
+# $1 == image.jpg
+# $2 == 1000x1000
+# $3 == 125Kb
+# $4 == main
 
 echo "Reducing $1 $3x$3px and $3kb in $4/ ..."
 mkdir -p $4

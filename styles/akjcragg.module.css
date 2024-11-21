@@ -26,6 +26,10 @@
    max-height : 0px;
    opacity    : 0;
 }
+.imgFluid {
+   max-width        : 100%;
+   height           : auto;
+}
 .navIcon {
    width   : 50px;
    color   : dimgrey;

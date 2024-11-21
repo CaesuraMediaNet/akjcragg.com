@@ -34,39 +34,59 @@ import useProgressiveImg from '../components/useProgressiveImg';
 
 // Local functions.
 //
-import calcColumnsH1 from '../functions/calcColumnsH1';
+import calcColumnsH1     from '../functions/calcColumnsH1';
+
+// Fancybox.
+//
+import Fancybox           from '../components/Fancybox';
+
 
 // Constants.
 //
 import {
-   ImageListMain1,
+   ImageListPopular,
+   ImageListBW,
+   ImageListNature,
+   ImageListViews,
+   ImageListOddities,
+   ImageListLensArt,
    ImageListCardiff,
    ImageListNeon,
    ImageListWarm,
    ImageListWorthing,
-   ImageListBW,
-   ImageListVarious,
 } from '../constants';
 const sections = [
    {
-      title : "ImageListMain1",
-      list  : ImageListMain1,
+      title : "Top Pics",
+      list : ImageListPopular,
+   },
+   {
+      title : "Nature",
+      list : ImageListNature,
+   },
+   {
+      title : "Views",
+      list : ImageListViews,
+   },
+   {
+      title : "Oddities",
+      list : ImageListOddities,
+   },
+   {
+      title : "Lens Art",
+      list : ImageListLensArt,
    },
    {
       title : "National Museum Cardiff",
       list  : ImageListCardiff,
    },
    {
-      title : "Various",
-      list  : ImageListVarious,
-   },
-   {
       title : "Neon",
       list  : ImageListNeon,
    },
    {
-      title : "B/W",
-      list  : ImageListBW,
+      title : "MonoChrome",
+      list : ImageListBW,
    },
    {
       title : "Warm",
@@ -117,39 +137,74 @@ export default function AKJCragg () {
             <h1 style={{textAlign: 'left', fontSize : h1FontSize}}>AKJ Cragg | Lens</h1>
             <Link style={{fontSize : h1FontSize/2, textDecoration: "underline", color : 'unset'}} href="/about">About</Link>
          </div>
-         {sections.map((section, sindex) => (
-            <div key={sindex}>
-               <h2>{section.title === "ImageListMain1" ? "" : section.title}</h2>
-               <Masonry
-                  style={{marginLeft : 'auto', marginRight : 'auto'}}
-                  columns={
-                     section.title.match(/ImageListMain1|Various/) && numColumns > 2
-                     ? 3                   : section.list.length < numColumns
-                     ? section.list.length : numColumns
-                  }
-                  spacing={
-                     numColumns > 1 ? 5 : 2
-                  }
-               >
-                  {section.list.map((item, index) => (
-                     <div key={index}
-                        style={{
-                           borderRadius : '0.2rem',
-                           overflow     : 'hidden',
-                           border       : '1px solid rgba(190, 190, 190, 1.0)',
-                           padding      : 0,
-                           boxShadow    : '0px 0px 15px 5px #D2D6C5',
-                        }}
+         <div style={{textAlign : 'left'}}>
+            {sections.map((section, sindex) => {
+               if (section.title == "Top Pics") return ;
+               return (
+                  <span key={sindex}>
+                     <Link
+                        style={{fontSize : h1FontSize/4, textDecoration: "underline", color : 'unset'}}
+                        href={'#anchor-' + section.title}
                      >
-                        <div style={{marginTop : 2}}>
-                           {item.replace(/^\/img\/main\/(.+).jpg/, '$1').replace(/([A-Z]+)/g, ' $1').trim()}
+                        {section.title}
+                     </Link>
+                     <span>&nbsp;&nbsp;</span>
+                  </span>
+               )
+            })}
+         </div>
+         <Fancybox
+            options={{
+               Carousel: {
+                  infinite: true,
+               },
+            }}
+         >
+            {sections.map((section, sindex) => (
+               <div key={sindex}>
+                  <h2 id={'anchor-' + section.title}>{section.title === "Top Pics" ? "" : section.title}</h2>
+                  <Masonry
+                     style={{marginLeft : 'auto', marginRight : 'auto'}}
+                     columns={
+                        section.title.match(/Top Pics/) && numColumns > 2
+                        ? 2                   : section.list.length < numColumns
+                        ? section.list.length : numColumns
+                     }
+                     spacing={
+                        numColumns > 1 ? 5 : 2
+                     }
+                  >
+                     {section.list.map((item, index) => (
+                        <div key={index}
+                           style={{
+                              borderRadius : '0.2rem',
+                              overflow     : 'hidden',
+                              border       : '1px solid rgba(190, 190, 190, 1.0)',
+                              padding      : 0,
+                              boxShadow    : '0px 0px 15px 5px #D2D6C5',
+                           }}
+                        >
+                           <div style={{marginTop : 2}}>
+                              {item.replace(/^\/img\/main\/(.+).jpg/, '$1').replace(/([A-Z]+)/g, ' $1').trim()}
+                           </div>
+                           <a
+                              data-fancybox={section.title}
+                              href={item}
+                              data-caption={item.replace(/^\/img\/main\/(.+).jpg/, '$1').replace(/([A-Z]+)/g, ' $1').trim()}
+                              style={{color : 'black', textDecoration : 'none'}}
+                           >
+                              <AkjImage
+                                 item={item}
+                                 alt={item.replace(/^\/img\/main\/(.+).jpg/, '$1').replace(/([A-Z]+)/g, ' $1').trim()}
+                                 className={styles.imgFluid}
+                              />
+                           </a>
                         </div>
-                        <AkjImage item={item} />
-                     </div>
-                  ))}
-               </Masonry>
-            </div>
-         ))}
+                     ))}
+                  </Masonry>
+               </div>
+            ))}
+         </Fancybox>
          <Footer />
       </Layout>
    );
