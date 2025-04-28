@@ -21,7 +21,7 @@ export default function Footer () {
          <hr />
          <iframe
             style={{border:"unset", height:"100vw", width:"90vw"}}
-            src="https://caesuramedia.com/ads"
+            src="https://caesurababy.com/ads"
             loading="lazy"
             width="90%"
             height="100%"
