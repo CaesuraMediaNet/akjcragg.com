@@ -70,6 +70,12 @@ export const ImageListLensArt = [
    "/img/main/Nope.jpg",
    "/img/main/20T.jpg",
    "/img/main/OldTrainDetail.jpg",
+   "/img/main/Fire-01.jpg",
+   "/img/main/FireplaceDetail.jpg",
+   "/img/main/Kindling-01.jpg",
+   "/img/main/Kindling-02.jpg",
+   "/img/main/Kindling-03.jpg",
+   "/img/main/Wine.jpg",
 ];
 
 export const ImageListCardiff = [
