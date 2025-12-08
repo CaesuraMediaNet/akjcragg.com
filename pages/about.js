@@ -58,7 +58,7 @@ export default function About () {
             <Grid md={8}>
                <p style={pStyle}>
                   I like to work with digital photographs in a minimal way, without using
-                  special effects, just using changes in colour and perspective to create
+                  special effects - just using changes in colour and perspective to create
                   new images.
                </p>
                <p style={pStyle}>
