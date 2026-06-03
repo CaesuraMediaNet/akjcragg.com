@@ -1,5 +1,6 @@
 export const ImageListPopular = [
    "/img/main/Craz.jpg",
+   "/img/main/ParisKiss.jpg",
    "/img/main/element.jpg",
    "/img/main/BronzeChairs.jpg",
    "/img/main/DressColour.jpg",
