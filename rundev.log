@@ -1,0 +1,11 @@
+
+> dev
+> next dev -p 3005
+
+▲ Next.js 16.3.3 (Turbopack)
+- Local:         http://localhost:3005
+- Network:       http://192.168.1.71:3005
+✓ Ready in 491ms
+✓ Running next.config.js took 24ms
+
+ GET / 200 in 2.2s (next.js: 2.2s, application-code: 73ms)
