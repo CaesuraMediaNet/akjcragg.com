@@ -4,6 +4,7 @@ export const ImageListPopular = [
    "/img/main/element.jpg",
    "/img/main/BronzeChairs.jpg",
    "/img/main/DressColour.jpg",
+   "/img/main/SiteSpecificWallCurtainAndDadoRail2.jpg",
 ];
 export const ImageListBW = [
    "/img/main/Banister.jpg",

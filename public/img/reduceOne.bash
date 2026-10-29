@@ -1,4 +1,4 @@
-for i in `ls DylanThomas20July2024*`; do
+for i in `ls SiteSpecificWallCurtainAndDadoRail2.jpg`; do
    ./reduce.bash $i 100  1   blur;
    ./reduce.bash $i 333  5   small;
    ./reduce.bash $i 666  10  medium;
